@@ -23,11 +23,31 @@ describe Evaluation do
       }
     end
     it 'returns proper values' do
-      expect(subject.revenue).to be == 300
+      expect(subject.revenue).to be == 300.0
     end
   end
   describe 'Expenses' do
-    it 'returns proper values'
+    let(:data) do
+      {
+        "data" =>  [
+          {
+            "account_category" =>  "expense",
+            "total_value" =>  100.0
+          },
+          {
+            "account_category" =>  "not-expensee",
+            "total_value" =>  666.0
+          },
+          {
+            "account_category" =>  "expense",
+            "total_value" =>  200.0
+          }
+        ]
+      }
+    end
+    it 'returns proper values' do
+      expect(subject.expenses).to be == 300.0
+    end
   end
   describe 'Gross Profit Margin' do
     it 'returns proper values'
