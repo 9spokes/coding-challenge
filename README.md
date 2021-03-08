@@ -93,3 +93,9 @@ Working Capital Ratio: 95%
 If your program requires a special way to compile or a specific version of a toolset, please be sure to include that in your running instructions.
 
 __Thank you and good luck!__
+
+## Instructions
+1. Ensure that you have Ruby (tested on Ruby 2.7.0)
+2. Install libraries: `make init`
+3. Run tests: `make test`
+4. Show how the script works: `make run`
