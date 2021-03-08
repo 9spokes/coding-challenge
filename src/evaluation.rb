@@ -54,9 +54,9 @@ class Evaluation
   def credit_debit_sign(item)
     case item['value_type']
     when 'debit'
-      1.0
+      1
     when 'credit'
-      -1.0
+      -1
     else
       ZERO
     end
