@@ -88,17 +88,17 @@ describe Evaluation do
           },
           {
             "account_category" =>  "expense",
-            "total_value" =>  100.0
+            "total_value" =>  50.0
           },
           {
             "account_category" =>  "expense",
-            "total_value" =>  201.0
+            "total_value" =>  100.0
           }
         ]
       }
     end
     it 'returns proper values' do
-      expect(subject.net_profit_margin).to be == -1.0
+      expect(subject.net_profit_margin).to be == 0.5
     end
   end
   describe 'Working Capital Ratio' do
@@ -138,7 +138,7 @@ describe Evaluation do
       }
     end
     it 'returns proper values' do
-      expect(subject.working_capital_ratio).to be == 0.5
+      expect(subject.working_capital_ratio).to be == -0.5
     end
   end
 end
