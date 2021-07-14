@@ -1,6 +1,7 @@
 import getRevenue from './src/calculateRevenue.js'
 import fs from 'fs'
 import getExpenses from './src/calculateExpenses.js';
+import getGrossProfitMargin from './src/calculateGrossProfitMargin.js';
 import getNetProfitMargin from './src/calculateNetprofitMargin.js';
 
 //extract data from the input data file
@@ -22,5 +23,9 @@ const percentageFormat = new Intl.NumberFormat('en-AU', {
 });
 
  console.log('Revenue: $%s', ausCurrencyFormat.format(calculatedRevenue));
+
  console.log('Expenses: $%s', ausCurrencyFormat.format(calculatedExpenses));
+
+ console.log('Gross Profit Margin: %s%%', percentageFormat.format(100 * getGrossProfitMargin(extracted_data.data, calculatedExpenses)));
+ 
  console.log('Net Profit Margin: %s%%', percentageFormat.format(100 * getNetProfitMargin(calculatedRevenue, calculatedExpenses)));
