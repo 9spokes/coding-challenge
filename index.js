@@ -3,6 +3,7 @@ import fs from 'fs'
 import getExpenses from './src/calculateExpenses.js';
 import getGrossProfitMargin from './src/calculateGrossProfitMargin.js';
 import getNetProfitMargin from './src/calculateNetprofitMargin.js';
+import getworkingCapitalRatio from './src/calculateWorkingCapitalRatio.js';
 
 //extract data from the input data file
 const extracted_data = JSON.parse(fs.readFileSync('data.json'));
@@ -29,3 +30,5 @@ const percentageFormat = new Intl.NumberFormat('en-AU', {
  console.log('Gross Profit Margin: %s%%', percentageFormat.format(100 * getGrossProfitMargin(extracted_data.data, calculatedExpenses)));
  
  console.log('Net Profit Margin: %s%%', percentageFormat.format(100 * getNetProfitMargin(calculatedRevenue, calculatedExpenses)));
+
+ console.log('Working Capital Ratio: %s%%',percentageFormat.format(100 * getworkingCapitalRatio(extracted_data.data)));
