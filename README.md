@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Go to the project directiry and run `npm install` it will download all the required dependencies for the application.
+please use the `feature`branch to download the application and then go to the project directiry and run `npm install` it will download all the required dependencies for the application.
 To start the application run `npm start` within the project directory and it will display the expected output.
 Unit tests are implemented with Jest, `npm install` then run tests with `npm test`.
 
