@@ -18,7 +18,7 @@
       expect(getGrossProfitMargin([],0)).toEqual(NaN);
     });
     
-    test('ignore irrelavant sales and credit', () => {
+    test('when there is no ', () => {
       expect(getGrossProfitMargin([salesAndCredit_1],25)).toBeCloseTo(0);
     });
     
@@ -26,8 +26,4 @@
       expect(getGrossProfitMargin([salesAndCredit_1,salesAndDebit_2],50)).toBeCloseTo(3);
     });
 
-    test('when empty items', () => {
-      expect(getGrossProfitMargin([],0)).toEqual(NaN);
-    });
-    
   });
