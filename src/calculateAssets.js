@@ -1,5 +1,10 @@
 import accumulatorOfTotalValue from './helper.js'
-
+/**
+ * Returns whether item is a asset or not
+ *
+ * @param {item} item  passed item.
+ * @return {Boolean}  asset or not
+ */
 const checkIsAsset = (item)=>{
     return (item.account_category === 'assets' && ['current', 'bank', 'current_accounts_receivable']
     .includes(item.account_type));
