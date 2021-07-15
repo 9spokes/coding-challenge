@@ -1,4 +1,4 @@
-  import getGrossProfitMargin from '../src/calculateGrossProfitMargin'
+  import getGrossProfitMargin from '../src/calculateGrossProfitMargin.js'
 
   describe('Test Calculating Gross Profit Margin', () => {
 

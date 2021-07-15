@@ -1,6 +1,4 @@
   import getNetProfitMargin from '../src/calculateNetprofitMargin.js'
-  import getRevenue from '../src/calculateRevenue.js'
-  import getExpenses from '../src/calculateExpenses.js'
 
   describe('Test Calculating Net Profit Margin', () => {
 

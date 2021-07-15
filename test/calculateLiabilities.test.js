@@ -1,4 +1,4 @@
-  import getAssets from '../src/calculateAssets.js'
+  import getLiabilities from '../src/calculateLiabilities'
 
   describe('Test Calculating Assets', () => {
 
@@ -56,17 +56,17 @@
     };
 
     test('when items are empty ', () => {
-      expect(getAssets([])).toEqual(0);
+      expect(getLiabilities([])).toEqual(0);
     });
     test('when have one debit', () => {
-      expect(getAssets([assetDebitItem_1])).toEqual(10);
+      expect(getLiabilities([liabilityDebitItem_2])).toEqual(50);
     });
     test('when have one credit', () => {
-      expect(getAssets([assetCreditItem_1])).toEqual(-1400);
+      expect(getLiabilities([liabilityCreditItem_1])).toEqual(-40);
     });
 
     test('when have one multiple types of  items', () => {
-      expect(getAssets([assetDebitItem_2,assetCreditItem_1,liabilityDebitItem_2,liabilityCreditItem_1])).toEqual(-1375);
+      expect(getLiabilities([assetDebitItem_2,assetCreditItem_1,liabilityDebitItem_2,liabilityCreditItem_1])).toEqual(10);
     });
     
   });
