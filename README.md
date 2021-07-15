@@ -1,5 +1,14 @@
 # 9Spokes Coding Challenge
 
+## Instructions
+
+Go to the project directiry and run `npm install` it will download all the required dependencies for the application.
+To start the application run `npm start` within the project directory and it will display the expected output.
+Unit tests are implemented with Jest, `npm install` then run tests with `npm test`.
+
+-Unit tested with "jest": "^27.0.6"
+-Application tested with Node v12.18.0
+
 ## Overview
 
 This repo contains the instructions and the data you need to complete the _9Spokes coding challenge_.  This challenge is not intended to be complex, but it is an opportunity for you to showcase your understanding and applying of good development practices.
