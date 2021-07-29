@@ -10,7 +10,7 @@ const getRevenue = () => {
         totalRevenue = totalRevenue + obj.total_value
       }
   })
-  return totalRevenue;
+  return Math.Round(totalRevenue);
 }
 
 const getExpenses = () => {
@@ -20,7 +20,7 @@ const getExpenses = () => {
       totalExpense = totalExpense + obj.total_value
     }
   })
-  return totalExpense
+  return Math.Round(totalExpense)
 }
 
 const getGrossProfitMargin = () => {
@@ -30,11 +30,11 @@ const getGrossProfitMargin = () => {
       gpm = gpm + obj.total_value;
     }
   })
-  return gpm;
+  return (gpm/getRevenue).toFixed(1);
 }
 
 const getNetProfitMargin = () =>{
-  return ((getRevenue - getExpenses) / getRevenue)
+  return (((getRevenue - getExpenses) / getRevenue)*100).toFixed(1)
 }
 
 const getworkingCapitalRatio = () => {
@@ -59,7 +59,7 @@ const getworkingCapitalRatio = () => {
     }
   })
 
-  return (totalAssets/totalLiabilites)*100
+  return ((totalAssets/totalLiabilites)*100).toFixed(1)
 }
 
 
@@ -82,8 +82,8 @@ function App() {
   return (
     <div className="App">
       <h1>9Spokes Challenge:</h1>
-      <p>Revenue: {revenue}</p>
-      <p>Expenses: {expenses}</p>
+      <p>Revenue: ${revenue}</p>
+      <p>Expenses: ${expenses}</p>
       <p>Gross Profit Margin: {grossProfitMargin}%</p>
       <p>Net Profit Margin: {netProfitMargin}%</p>
       <p>Working Capital Ratio: {workingCapitalRatio}%</p>
