@@ -30,12 +30,9 @@ const getGrossProfitMargin = () => {
       gpm = gpm + obj.total_value;
     }
   })
-  return (gpm/getRevenue).toFixed(1);
+  return gpm;
 }
 
-const getNetProfitMargin = () =>{
-  return (((getRevenue - getExpenses) / getRevenue)*100).toFixed(1)
-}
 
 const getworkingCapitalRatio = () => {
   var totalAssets = 0;
@@ -67,7 +64,6 @@ function App() {
   const [revenue, setRevenue] = useState(0);
   const [expenses, setExpenses] = useState(0);
   const [grossProfitMargin, setGrossProfitMargin] = useState(0);
-  const [netProfitMargin, setNetProfitMargin] = useState(0);
   const [workingCapitalRatio, setWorkingCapitalRatio] = useState(0);
   
 
@@ -75,7 +71,6 @@ function App() {
      setRevenue(getRevenue);
      setExpenses(getExpenses);
      setGrossProfitMargin(getGrossProfitMargin);
-     setNetProfitMargin(getNetProfitMargin);
      setWorkingCapitalRatio(getworkingCapitalRatio);
   }, [])
 
@@ -84,8 +79,8 @@ function App() {
       <h1>9Spokes Challenge:</h1>
       <p>Revenue: ${revenue}</p>
       <p>Expenses: ${expenses}</p>
-      <p>Gross Profit Margin: {grossProfitMargin}%</p>
-      <p>Net Profit Margin: {netProfitMargin}%</p>
+      <p>Gross Profit Margin: {((grossProfitMargin/revenue)*100).toFixed(1)}%</p>
+      <p>Net Profit Margin: {(((revenue - expenses)/revenue)*100).toFixed(1)}%</p>
       <p>Working Capital Ratio: {workingCapitalRatio}%</p>
 
     </div>
