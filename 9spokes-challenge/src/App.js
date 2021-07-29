@@ -20,9 +20,31 @@ function App() {
       })
   }
 
+  const getExpenses = (data) => {
+    data.data.forEach((obj)=>{
+      if(obj.account_category === 'expense'){
+          setExpenses(expenses + obj.total_value)
+      }
+    })
+  }
+
+  const getGrossProfitMargin = (data) => {
+    var sales = 0;
+    data.data.forEach((obj)=>{
+      if(obj.account_type === "sales" && obj.value_type === "debit"){     
+        sales = sales + obj.total_value;
+      }
+    })
+    setGrossProfitMargin(sales/revenue)
+  }
+
+  
+
+
   useEffect(() => {
      getRevenue(data);
-
+     getExpenses(data);
+     getGrossProfitMargin(data);
   }, [])
 
   return (
