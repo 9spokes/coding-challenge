@@ -2,7 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import data from './data.json'
 
-  
+//calculating Revenue  
 const getRevenue = () => {
   var totalRevenue = 0;
   data.data.forEach((obj)=>{
@@ -13,6 +13,7 @@ const getRevenue = () => {
   return Math.round(totalRevenue);
 }
 
+//calculating expenses
 const getExpenses = () => {
   var totalExpense = 0;
   data.data.forEach((obj)=>{
@@ -23,6 +24,7 @@ const getExpenses = () => {
   return Math.round(totalExpense)
 }
 
+//calculating 
 const getGrossProfitMargin = () => {
   var gpm = 0;
   data.data.forEach((obj)=>{
@@ -33,8 +35,8 @@ const getGrossProfitMargin = () => {
   return gpm;
 }
 
-
-const getworkingCapitalRatio = () => {
+//calculating working capital ratio
+const getWorkingCapitalRatio = () => {
   var totalAssets = 0;
   var totalLiabilites = 0;
   data.data.forEach((obj)=>{
@@ -66,12 +68,12 @@ function App() {
   const [grossProfitMargin, setGrossProfitMargin] = useState(0);
   const [workingCapitalRatio, setWorkingCapitalRatio] = useState(0);
   
-
+  //fire the nested functions upon the rendering of the functional component
   useEffect(() => {
      setRevenue(getRevenue);
      setExpenses(getExpenses);
      setGrossProfitMargin(getGrossProfitMargin);
-     setWorkingCapitalRatio(getworkingCapitalRatio);
+     setWorkingCapitalRatio(getWorkingCapitalRatio);
   }, [])
 
   return (
