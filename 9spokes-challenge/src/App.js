@@ -10,7 +10,7 @@ const getRevenue = () => {
         totalRevenue = totalRevenue + obj.total_value
       }
   })
-  return Math.Round(totalRevenue);
+  return Math.round(totalRevenue);
 }
 
 const getExpenses = () => {
@@ -20,7 +20,7 @@ const getExpenses = () => {
       totalExpense = totalExpense + obj.total_value
     }
   })
-  return Math.Round(totalExpense)
+  return Math.round(totalExpense)
 }
 
 const getGrossProfitMargin = () => {
