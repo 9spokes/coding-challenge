@@ -26,7 +26,7 @@ const getExpenses = () => {
 const getGrossProfitMargin = () => {
   var gpm = 0;
   data.data.forEach((obj)=>{
-    if(obj.account_type === "sales" && obj.value_type === "debit"){     
+    if(obj.account_type === 'sales' && obj.value_type === 'debit'){     
       gpm = gpm + obj.total_value;
     }
   })
@@ -35,6 +35,31 @@ const getGrossProfitMargin = () => {
 
 const getNetProfitMargin = () =>{
   return ((getRevenue - getExpenses) / getRevenue)
+}
+
+const getworkingCapitalRatio = () => {
+  var totalAssets = 0;
+  var totalLiabilites = 0;
+  data.data.forEach((obj)=>{
+    if(obj.account_category === 'assets' && obj.value_type === 'debit' 
+    && (obj.account_type === 'current'||obj.account_type === 'bank'||obj.account_type === 'current_accounts_receivable')){
+      totalAssets = totalAssets + obj.total_value;
+    }
+    else if(obj.account_category === 'assets' && obj.value_type === 'credit' 
+    && (obj.account_type === 'current'||obj.account_type === 'bank'||obj.account_type === 'current_accounts_receivable')){
+      totalAssets = totalAssets - obj.total_value;
+    }
+    else if(obj.account_category === 'liability' && obj.value_type === 'credit' 
+    && (obj.account_type === 'current'||obj.account_type === 'current_accounts_payable')){
+      totalLiabilites = totalLiabilites + obj.total_value;
+    }
+    else if(obj.account_category === 'liability' && obj.value_type === 'debit' 
+    && (obj.account_type === 'current'||obj.account_type === 'current_accounts_payable')){
+      totalLiabilites = totalLiabilites - obj.total_value;
+    }
+  })
+
+  return (totalAssets/totalLiabilites)*100
 }
 
 
@@ -51,6 +76,7 @@ function App() {
      setExpenses(getExpenses);
      setGrossProfitMargin(getGrossProfitMargin);
      setNetProfitMargin(getNetProfitMargin);
+     setWorkingCapitalRatio(getworkingCapitalRatio);
   }, [])
 
   return (
@@ -60,7 +86,7 @@ function App() {
       <p>Expenses: {expenses}</p>
       <p>Gross Profit Margin: {grossProfitMargin}%</p>
       <p>Net Profit Margin: {netProfitMargin}%</p>
-      <p>Working Capital Ratio: {workingCapitalRatio}</p>
+      <p>Working Capital Ratio: {workingCapitalRatio}%</p>
 
     </div>
   );
