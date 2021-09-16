@@ -15,9 +15,9 @@
     2. `npm start` - to Run the project
 
 ## How to test?
-   > `npm test` - to run test suits
-   > `npm run coverage` - to get the coverage report of codebase.
-   > current codebase report can be found [here](https://github.com/akumbhani66/coding-challenge/blob/feature/data-calculation/tests/test-report/index.html) 
+   * `$npm test` - to run test suits
+   * `$npm run coverage` - to get the coverage report of codebase.
+   * current codebase report can be found [here](https://github.com/akumbhani66/coding-challenge/blob/feature/data-calculation/tests/test-report/index.html) - This report can be host somewhere
    
 
 ## How to publish?
