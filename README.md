@@ -11,8 +11,8 @@
 
     OR
 
-    1. `npm install` - to install depedencies
-    2. `npm start` - to Run the project
+    1. `$npm install` - to install depedencies
+    2. `$npm start` - to Run the project
 
 ## How to test?
    * `$npm test` - to run test suits
